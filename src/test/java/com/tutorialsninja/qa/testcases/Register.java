@@ -124,7 +124,7 @@ public void verifyRegisteringAnAccountWithExistingEmailAddress() throws Interrup
 	@Test(priority=5)
 	public void verifyRegisteringAnAccountInvalidPhoneNumber() throws InterruptedException {
 
-
+//comment
 
 		RegisterPage registerPage = new RegisterPage(driver);
 		registerPage.enterFirstName(dataProp.getProperty("FirstName"));
