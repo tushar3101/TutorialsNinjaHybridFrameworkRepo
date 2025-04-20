@@ -140,7 +140,7 @@ public void verifyRegisteringAnAccountWithExistingEmailAddress() throws Interrup
 
 		Boolean validate =  accountSuccessPage.getDisplayStatusOfyourAccountHasBeenCreatedOption();
 		Assert.assertEquals(true, validate,"Recent Error");
-//end.
+//end..
 	}
 
 
