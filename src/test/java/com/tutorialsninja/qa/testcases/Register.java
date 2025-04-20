@@ -65,18 +65,18 @@ public class Register extends BaseClass {
 	}
 	
 @Test(priority=2)
-public void verifyRegisteringAnAccountByProvidingAllFields() throws InterruptedException {
-		
-		
-		
-	RegisterPage registerPage = new RegisterPage(driver);
-	registerPage.enterFirstName(dataProp.getProperty("FirstName"));
-	registerPage.enterLastName(dataProp.getProperty("LastName"));
-	registerPage.enterEmailAddress(Utilities.generateRandomNumber()+"@gmail.com");
-	registerPage.enterTelephoneNumber(dataProp.getProperty("TelephoneNumber"));
-	registerPage.enterPassword(prop.getProperty("validPass"));
-	registerPage.enterConfirmPassword(prop.getProperty("validPass"));
-	registerPage.selectPrivacyPolicy();
+	public void verifyRegisteringAnAccountByProvidingAllFields() throws InterruptedException {
+
+
+
+		RegisterPage registerPage = new RegisterPage(driver);
+		registerPage.enterFirstName(dataProp.getProperty("FirstName"));
+		registerPage.enterLastName(dataProp.getProperty("LastName"));
+		registerPage.enterEmailAddress(Utilities.generateRandomNumber()+"@gmail.com");
+		registerPage.enterTelephoneNumber(dataProp.getProperty("TelephoneNumber"));
+		registerPage.enterPassword(prop.getProperty("validPass"));
+		registerPage.enterConfirmPassword(prop.getProperty("validPass"));
+		registerPage.selectPrivacyPolicy();
 	registerPage.clickOnContinueButton();
 	AccountSuccessPage accountSuccessPage = new AccountSuccessPage(driver);
 	
@@ -120,5 +120,28 @@ public void verifyRegisteringAnAccountWithExistingEmailAddress() throws Interrup
 
 	
 }
-	
+
+	@Test(priority=5)
+	public void verifyRegisteringAnAccountInvalidPhoneNumber() throws InterruptedException {
+
+
+
+		RegisterPage registerPage = new RegisterPage(driver);
+		registerPage.enterFirstName(dataProp.getProperty("FirstName"));
+		registerPage.enterLastName(dataProp.getProperty("LastName"));
+		registerPage.enterEmailAddress(Utilities.generateRandomNumber()+"@gmail.com");
+		registerPage.enterTelephoneNumber("abcde");
+		registerPage.enterPassword(prop.getProperty("validPass"));
+		registerPage.enterConfirmPassword(prop.getProperty("validPass"));
+		registerPage.selectPrivacyPolicy();
+		registerPage.clickOnContinueButton();
+		AccountSuccessPage accountSuccessPage = new AccountSuccessPage(driver);
+
+		Boolean validate =  accountSuccessPage.getDisplayStatusOfyourAccountHasBeenCreatedOption();
+		Assert.assertEquals(true, validate,"Recent Error");
+
+	}
+
+
+
 }
