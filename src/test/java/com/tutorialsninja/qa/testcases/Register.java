@@ -124,7 +124,8 @@ public void verifyRegisteringAnAccountWithExistingEmailAddress() throws Interrup
 	@Test(priority=5)
 	public void verifyRegisteringAnAccountInvalidPhoneNumber() throws InterruptedException {
 
-//comment1
+//comment13
+
 
 		RegisterPage registerPage = new RegisterPage(driver);
 		registerPage.enterFirstName(dataProp.getProperty("FirstName"));
@@ -139,7 +140,7 @@ public void verifyRegisteringAnAccountWithExistingEmailAddress() throws Interrup
 
 		Boolean validate =  accountSuccessPage.getDisplayStatusOfyourAccountHasBeenCreatedOption();
 		Assert.assertEquals(true, validate,"Recent Error");
-
+//end..
 	}
 
 
